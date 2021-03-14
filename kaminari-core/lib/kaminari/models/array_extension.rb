@@ -51,7 +51,7 @@ module Kaminari
     end
 
     # total item numbers of the original array
-    def total_count
+    def total_count(_column_name = nil)
       @_total_count || @_original_array.length
     end
 

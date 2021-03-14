@@ -233,6 +233,10 @@ if defined? ActiveRecord
             assert_equal 1, model_class.page(50).per(65536).total_pages
           end
 
+          test 'per 65536 with id column name' do
+            assert_equal 1, model_class.page(50).per(65536).total_pages(:id)
+          end
+
           test 'per 0' do
             assert_raise Kaminari::ZeroPerPageOperation do
               model_class.page(50).per(0).total_pages
